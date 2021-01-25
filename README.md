@@ -72,11 +72,11 @@ When the parameter 'name' is called by reaching outside of the function.
 
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
 
-
+"Dan rolled a" will always be the same, but his roll number is different.
 
 c. What is the lexical scope of `newRoll`? 
 
-
+The lexical scope of 'newRoll' is block scope.
 
 
 
