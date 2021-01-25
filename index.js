@@ -18,7 +18,7 @@ function processFirstItem(stringList, callback) {
 }
 console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
 
-// ⭐️ Example Challenge END ⭐️
+// ⭐️ Example Challenge END ⭐️ 
 
 
 ///// M V P ///////
