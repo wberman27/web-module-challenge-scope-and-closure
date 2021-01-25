@@ -70,7 +70,7 @@ NOTE: This will be a callback function for the tasks below
 */
 
 function inning(){
-    return Math.floor(Math.random()*3);
+    return Math.floor(Math.random()*3); //gives a random number between 0 and 2
 }
 console.log(inning());
 
@@ -90,8 +90,8 @@ Use the finalScore function below to do the following:
 
 function finalScore(inningCB, numInning){
   let scores = {Away: 0, Home: 0}
-  for(let i=0;i<numInning;i++){
-      scores.Home = scores.Home + inningCB();
+  for(let i=0;i<numInning;i++){ //loops for the number of innings, or 9
+      scores.Home = scores.Home + inningCB(); //each loop the scores will add the random number given by inning()
       scores.Away = scores.Away + inningCB();
   }return scores;
 }
@@ -104,7 +104,7 @@ Use the getInningScore() function below to do the following:
 
 function getInningScore(inningCB) {
   return {
-    "Home": inningCB(),
+    "Home": inningCB(), //return a object of keys Home and Away, and invoke inning() with each of them
     "Away": inningCB()
   }
 }
@@ -152,22 +152,22 @@ Use the scoreboard function below to do the following:
   */
 
 function scoreboard(getInningScoreCB, inningCB, numInning) {
-  let sbArray = [];
-  let homeScore = 0;
+  let sbArray = []; // empty array to start scoreboard
+  let homeScore = 0; //scores start at zero
   let awayScore = 0;
 
   for(let i=0; i<numInning;i++){
-    let currentInning = getInningScoreCB(inningCB);
-    homeScore = homeScore + currentInning.Home;
+    let currentInning = getInningScoreCB(inningCB); //the currentInning allows for a new invocation of the function each iteration of the loop
+    homeScore = homeScore + currentInning.Home; //this will add the current to the global total scores each loop
     awayScore = awayScore + currentInning.Away;
-    sbArray.push(`Inning ${i+1}: Away ${currentInning.Away} - Home ${currentInning.Home}`);
+    sbArray.push(`Inning ${i+1}: Away ${currentInning.Away} - Home ${currentInning.Home}`); //pushes this string into the array each loop
     }
     if(awayScore === homeScore){
       sbArray.push(`This game will require extra innings: Away ${awayScore} - Home ${homeScore}`);
     }else{
       sbArray.push(`Final Score: Away ${awayScore} - Home ${homeScore}`);
     }
-  return sbArray;
+  return sbArray; //returns what array has been created
 }
 console.log(scoreboard(getInningScore, inning, 9));
 
